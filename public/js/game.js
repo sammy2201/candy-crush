@@ -6,7 +6,6 @@ $("button").on("click", function() {
   secondSelected.text(tempText);
   $("td").removeClass("selected");
   $("td").removeClass("selectedbox");
-  console.log("new score");
   Score();
 });
 
@@ -16,22 +15,36 @@ $("td").on("click", function(e) {
 
 function Score() {
   var s = 0;
-  for (var x = 1; x < 80; x++) {
+  for (var x = 1; x < 79; x++) {
     var y = x + 1;
     var z = y + 1;
     var a = $("td." + x).text();
     var b = $("td." + y).text();
     var c = $("td." + z).text();
-    if (a == b && a == c) {
+    if (a == b && a == c && x % 10 != 0 && y % 10 != 0) {
       s = s + 1;
-      $("td." + x).addClass("selectedbox");
-      $("td." + y).addClass("selectedbox");
-      $("td." + z).addClass("selectedbox");
+      if (x > 10) {
+        $("td." + x).addClass("selectedbox");
+        $("td." + y).addClass("selectedbox");
+        $("td." + z).addClass("selectedbox");
+
+        for (i = x; i > 0; i = i - 10) {
+          j = i - 10;
+          var ne = $("td." + j).text();
+          $("td." + i).text(ne);
+        }
+        for (i = y; i > 0; i = i - 10) {
+          j = i - 10;
+          var ne = $("td." + j).text();
+          $("td." + i).text(ne);
+        }
+        for (i = z; i > 0; i = i - 10) {
+          j = i - 10;
+          var ne = $("td." + j).text();
+          $("td." + i).text(ne);
+        }
+      }
     }
   }
-  console.log(s);
-  $("h5").text(s);
+  $("h4.score").text(s);
 }
-
-// var p=1;
-// console.log($("td."+p).text());
