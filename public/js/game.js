@@ -21,30 +21,37 @@ function Score() {
     var a = $("td." + x).text();
     var b = $("td." + y).text();
     var c = $("td." + z).text();
-    if (a == b && a == c && x % 10 != 0 && y % 10 != 0) {
-      s = s + 1;
-      if (x > 10) {
-        $("td." + x).addClass("selectedbox");
-        $("td." + y).addClass("selectedbox");
-        $("td." + z).addClass("selectedbox");
+    if (a == b && a == c && x % 10 != 0 && y % 10 != 0) { ///to check 3 boxes are same or not
+      s = s + 1; ///to increase the score
+      // $("td." + x).addClass("selectedbox");
+      // $("td." + y).addClass("selectedbox");
+      // $("td." + z).addClass("selectedbox");
 
-        for (i = x; i > 0; i = i - 10) {
-          j = i - 10;
-          var ne = $("td." + j).text();
-          $("td." + i).text(ne);
-        }
-        for (i = y; i > 0; i = i - 10) {
-          j = i - 10;
-          var ne = $("td." + j).text();
-          $("td." + i).text(ne);
-        }
-        for (i = z; i > 0; i = i - 10) {
-          j = i - 10;
-          var ne = $("td." + j).text();
-          $("td." + i).text(ne);
-        }
+      for (i = x; i > 0; i = i - 10) { //// okavela match ayithe upper vati tho replace karo
+        j = i - 10;
+        $("td." + i).text($("td." + j).text());
+        $("td." + i).addClass("animate__animated animate__bounce")
+      }
+      for (i = y; i > 0; i = i - 10) { //// okavela match ayithe upper vati tho replace karo
+        j = i - 10;
+        $("td." + i).text($("td." + j).text());
+        $("td." + i).addClass("animate__animated animate__bounce")
+      }
+      for (i = z; i > 0; i = i - 10) { //// okavela match ayithe upper vati tho replace karo
+        j = i - 10;
+        $("td." + i).text($("td." + j).text());
+        $("td." + i).addClass("animate__animated animate__bounce")
       }
     }
   }
   $("h4.score").text(s);
+
+  for (var x = 1; x < 79; x++) {
+    // console.log($("td."+x).text());
+    if ($("td." + x).text() === "") {
+      $("td." + x).addClass("animate__animated animate__bounce");
+      $("td." + x).html("10");
+    }
+  }
+
 }
