@@ -32,16 +32,20 @@ Install TypeScript globally:
 ### Installation
 
 1️⃣ Navigate to the backend directory:
-          ```bash
-          `cd Backend`
+```bash
+pip install foobar
+```
           
 2️⃣ Install dependencies:
-          ```bash
-          `npm install`
+```bash
+pip install foobar
+```
           
 3️⃣ Start the backend server:
-          ```bash
-          `npm run start`
+```bash
+pip install foobar
+```
+
 4️⃣ Server runs at: http://localhost:3000
 
 ## API Endpoints
